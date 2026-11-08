@@ -11,7 +11,7 @@ const SCOOTER = createSystem({
     note: "Gövde ölçüleri tipik bir 50 cc scooter'a yakın tutuldu: dingil mesafesi yaklaşık 136 cm, lastik 3.50-10. Motor ve CVT burada görünür olsun diye yüzde 25 büyük çizildi.",
     foot: "Gövde kodla üretilmiş temsili bir taslaktır, belirli bir markanın tasarımını kopyalamaz. Motor ve CVT, alt sistem sayfalarındaki modellerin aynısıdır."
   },
-  view: { target: [60, 46, 0], dir: [0.4, 0.26, 0.88], hw: 112, hh: 58, k: 1.04, minD: 30, maxD: 600 },
+  view: { ground: 0, target: [60, 46, 0], dir: [0.4, 0.26, 0.88], hw: 112, hh: 58, k: 1.04, minD: 30, maxD: 600 },
   GROUPS: ["Güç ünitesi", "Gövde", "Yürüyen aksam"],
   PARTS: {
     motor_unitesi: { ad: "Motor bloğu", grup: "Güç ünitesi", ayir: [0, 0, -32], alt: "motor",

@@ -23,7 +23,7 @@ const CARB = createSystem({
     note: "Mavi noktalar havayı, sarı noktalar yakıtı temsil eder; akış emme supabı açıldıkça ilerler. Hava/yakıt oranı ve tüketim yaklaşık örnektir. Normal sürüşte oran 14,7'ye yakındır; tam gazda ve soğuk motorda bilerek zenginleştirilir.",
     foot: "Karbüratör içi görünsün diye saydam ve büyütülmüş çizildi. Gerçek karbüratörde jiklörler gövdenin içindeki kanallarla birbirine bağlıdır; burada sadeleştirildi. Gerçek motorda karbüratör silindir kapağının üstünde, hava filtresi kutusu ise CVT kapağının üstündedir."
   },
-  view: { target: [-4, -1, 0], dir: [0.3, 0.32, 0.9], hw: 40, hh: 20, k: 1.06, minD: 10, maxD: 250 },
+  view: { ground: -18.6, target: [-4, -1, 0], dir: [0.3, 0.32, 0.9], hw: 40, hh: 20, k: 1.06, minD: 10, maxD: 250 },
   GROUPS: ["Hava yolu", "Karbüratör"],
   PARTS: {
     hava_filtresi: { ad: "Hava filtresi", grup: "Hava yolu", ayir: [-12, 0, 0],

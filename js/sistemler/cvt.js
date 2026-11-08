@@ -10,7 +10,7 @@ const CVT = createSystem({
     note: "Değerler GY6 tipi 50 cc için yaklaşık örnektir, ölçülmüş değildir. Hız yüksüz ve sınırlayıcısız hesaplandı; bu sınıf scooterlar mevzuat gereği 45 km/sa ile sınırlandırılır, sınırlama genellikle varyatördeki bir burçla ya da CDI'daki devir sınırıyla yapılır.",
     foot: "Geometri kodla üretilmiş geçici bir taslaktır; parça adları, bilgi kartları ve ayrılma yönleri ileride gerçek modellere aynen taşınacak şekilde tanımlandı."
   },
-  view: { target: [0, -1.8, 0], dir: [0.36, 0.34, 0.87], hw: 19, hh: 12.5, k: 1.02 },
+  view: { ground: -11.6, target: [0, -1.8, 0], dir: [0.36, 0.34, 0.87], hw: 19, hh: 12.5, k: 1.02 },
   GROUPS: ["Ön kasnak", "Kayış", "Arka kasnak", "Dişli kutusu"],
   PARTS: {
     krank: { ad: "Krank mili ucu", grup: "Ön kasnak", ayir: [0, 0, 0],

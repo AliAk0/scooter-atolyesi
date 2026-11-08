@@ -10,7 +10,7 @@ const MOTOR = createSystem({
     note: "Çevrim izlenebilsin diye animasyon yavaşlatıldı; gösterge gerçek devri gösterir. Supap zamanlaması ve ölçüler GY6 tipi 50 cc için yaklaşık örnektir.",
     foot: "Geometri kodla üretilmiş geçici bir taslaktır. Gerçek motorda silindir neredeyse yatay, öne doğru durur; burada anlaşılır olsun diye dik gösterildi. Silindir ve kapak, içi görünsün diye çeyrek kesitli çizildi."
   },
-  view: { target: [0, 7.8, 0], dir: [0.5, 0.3, 0.81], hw: 7.5, hh: 11.5, k: 1.18 },
+  view: { ground: -3.4, target: [0, 7.8, 0], dir: [0.5, 0.3, 0.81], hw: 7.5, hh: 11.5, k: 1.18 },
   GROUPS: ["Krank grubu", "Silindir ve kapak", "Supap mekanizması"],
   PARTS: {
     krank: { ad: "Krank mili", grup: "Krank grubu", ayir: [0, 0, 0],
@@ -156,7 +156,7 @@ const MOTOR = createSystem({
     M.gasMat = new THREE.MeshBasicMaterial({ color: 0x7fb3e6, transparent: true, opacity: 0.3, depthWrite: false });
     const gg = new THREE.CylinderGeometry(1.9, 1.9, 1, 40); gg.translate(0, 0.5, 0);
     M.gas = new THREE.Mesh(gg, M.gasMat); sys.root.add(M.gas);
-    M.C_FRESH = new THREE.Color(0x6fa3dc); M.C_FIRE = new THREE.Color(0xffa23a); M.C_SPENT = new THREE.Color(0x8d8580); M.tmp = new THREE.Color();
+    M.C_FRESH = new THREE.Color(0x6fa3dc).convertSRGBToLinear(); M.C_FIRE = new THREE.Color(0xffa23a).convertSRGBToLinear(); M.C_SPENT = new THREE.Color(0x8d8580).convertSRGBToLinear(); M.tmp = new THREE.Color();
     M.pCrank = pCrank; M.pRod = pRod; M.pPist = pPist; M.pRing = pRing; M.pCyl = pCyl; M.pHead = pHead; M.pPlug = pPlug; M.pCam = pCam; M.pRock = pRock; M.pChain = pChain;
 
     /* çevrim şeridi */

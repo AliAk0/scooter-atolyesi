@@ -116,6 +116,7 @@ function activate(id) {
   if (active.cam && active.cam.moved) { fit(); controls.minDistance = active.view.minD || 10; controls.maxDistance = active.view.maxD || 140;
     camera.position.copy(active.cam.pos); controls.target.copy(active.cam.target); controls.update(); userMoved = true; }
   else resetView();
+  applyStage(active.view);
 }
 const fromHash = () => (location.hash || "").replace("#", "");
 window.addEventListener("hashchange", () => activate(fromHash()));
@@ -134,7 +135,7 @@ renderer.domElement.addEventListener("pointerup", e => {
 function applyTheme() {
   const cs = getComputedStyle(document.documentElement);
   scene.background = new THREE.Color(cs.getPropertyValue("--stage").trim() || "#d8dde2");
-  accentCol.set(cs.getPropertyValue("--accent").trim() || "#d99a00");
+  accentCol.set(cs.getPropertyValue("--accent").trim() || "#d99a00").convertSRGBToLinear();
   const g = n => cs.getPropertyValue(n).trim();
   TOK.line = g("--line") || TOK.line; TOK.muted = g("--muted") || TOK.muted; TOK.ac = g("--w-ac") || TOK.ac; TOK.dc = g("--w-dc") || TOK.dc; TOK.sig = g("--w-sig") || TOK.sig; TOK.mono = g("--f-mono") || TOK.mono;
   if (active) paintSel(active);
@@ -151,5 +152,5 @@ function frame(now) {
   controls.update(); renderer.render(scene, camera);
   requestAnimationFrame(frame);
 }
-applyTheme(); activate(fromHash());
+linearizeScene(); applyTheme(); activate(fromHash());
 requestAnimationFrame(frame);

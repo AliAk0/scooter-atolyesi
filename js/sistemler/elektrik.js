@@ -19,7 +19,7 @@ const ELEK = createSystem({
     note: "Kablolardaki noktalar akımı temsil eder: AC'de ileri geri salınır, DC'de tek yönde akar, mor hatta ateşleme darbesi ilerler. Akış ve kıvılcım izlenebilsin diye yavaşlatıldı. Gerilim ve akım değerleri yaklaşık örnektir; grafik yüksüz stator dalgasını gösterir.",
     foot: "Bileşenler scooterdaki gerçek yerlerinde değil, devre sırasına göre dizildi. Volan, içindeki stator görünsün diye açık yüzü öne bakacak şekilde çizildi. Bu sınıf motorlarda CDI bazı versiyonlarda statordaki bir bobinden (AC-CDI), bazılarında aküden (DC-CDI) beslenir; burada AC-CDI gösterildi. AC-CDI'lı motor akü bitik olsa bile ayakla (kick) çalıştırılabilir, çünkü ateşleme enerjisini statordan alır. Sigorta ve şase dönüşleri sadelik için çizilmedi."
   },
-  view: { target: [9.5, 3.5, 0], dir: [0.26, 0.28, 0.92], hw: 34, hh: 19, k: 1.06, minD: 8, maxD: 240 },
+  view: { ground: -13.5, target: [9.5, 3.5, 0], dir: [0.26, 0.28, 0.92], hw: 34, hh: 19, k: 1.06, minD: 8, maxD: 240 },
   GROUPS: ["Şarj devresi", "Ateşleme devresi", "Marş devresi"],
   PARTS: {
     volan: { ad: "Volan (manyeto rotoru)", grup: "Şarj devresi", ayir: [0, 0, 10],

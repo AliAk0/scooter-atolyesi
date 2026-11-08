@@ -13,7 +13,7 @@ const FREN = createSystem({
     note: "Ana merkez Ø 11 mm, kaliper pistonu Ø 30 mm: alan oranı 7,4 kat, kol oranıyla birlikte el kuvveti yaklaşık 33 kat büyür. Ölçüler, kuvvetler ve tutunma sınırları yaklaşık örnektir.",
     foot: "Balata ve pabuç boşlukları görünsün diye abartılı çizildi; gerçekte milimetrenin altındadır. Teker dönüşü izlenebilsin diye yavaşlatıldı. Tekerler saydam, kampana ise içindeki pabuçlar görünsün diye ön yüzü açık çizildi."
   },
-  view: { target: [0, 9, 0], dir: [0.18, 0.16, 0.97], hw: 47, hh: 29, k: 1.04, minD: 15, maxD: 320 },
+  view: { ground: null, target: [0, 9, 0], dir: [0.18, 0.16, 0.97], hw: 47, hh: 29, k: 1.04, minD: 15, maxD: 320 },
   GROUPS: ["Ön fren · hidrolik disk", "Arka fren · kampana"],
   PARTS: {
     on_kol: { ad: "Fren kolu ve ana merkez", grup: "Ön fren · hidrolik disk", ayir: [0, 6, 4],
@@ -164,7 +164,7 @@ const FREN = createSystem({
     B.mcPiston.position.x = 3.0 - BRK.f * 0.5;
     const gapF = 0.32 * (1 - Math.min(1, BRK.f / 0.08));
     B.padO.position.z = 2.6 + 0.2 + gapF; B.padI.position.z = 2.6 - 0.2 - gapF; B.piston.position.set(0, 0, 2.6 + 0.2 + gapF + 0.95);
-    B.hoseMat.color.setRGB(0.17 + 0.55 * Math.min(1, pres / 8e6), 0.18, 0.2);
+    B.hoseMat.color.setRGB(0.17 + 0.55 * Math.min(1, pres / 8e6), 0.18, 0.2).convertSRGBToLinear();
     const close = Math.min(1, BRK.r / 0.1), d = 0.045 * close + 0.006 * Math.max(0, BRK.r - 0.1);
     B.shoes.forEach(s => s.hold.rotation.z = s.sg * d);
     B.cam.rotation.z = BRK.r * 0.55; B.camArm.rotation.z = BRK.r * 0.55;

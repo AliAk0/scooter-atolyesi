@@ -15,7 +15,7 @@ const SUS = createSystem({
     note: "Ön ve arka, birbirinden bağımsız yay-kütle-sönümleyici olarak hesaplanıyor. Yay sertlikleri, kütleler ve sönüm oranları yaklaşık örnektir; hareket izlenebilsin diye yavaşlatıldı, grafik gerçek zamanı gösterir.",
     foot: "Gövde temsilidir. Çatalın bir bacağında yay, diğerinde sönümleyici gösterildi; gerçek çatallarda düzen modele göre değişir. Alt kovanlar içi görünsün diye yarı saydam çizildi."
   },
-  view: { target: [72, 44, 0], dir: [0.04, 0.1, 0.99], hw: 118, hh: 56, k: 1.02, minD: 30, maxD: 600 },
+  view: { ground: null, target: [72, 44, 0], dir: [0.04, 0.1, 0.99], hw: 118, hh: 56, k: 1.02, minD: 30, maxD: 600 },
   GROUPS: ["Ön süspansiyon", "Arka süspansiyon", "Gövde ve yük"],
   PARTS: {
     on_catal: { ad: "Teleskopik ön çatal", grup: "Ön süspansiyon", ayir: [30, 0, 14],
@@ -61,7 +61,7 @@ const SUS = createSystem({
 
     /* yol ve tümsek (seçilemez) */
     const road = new THREE.Mesh(new THREE.BoxGeometry(420, 1.5, 40), new THREE.MeshStandardMaterial({ color: 0x4d535a, roughness: 0.95 }));
-    road.position.set(70, -0.75, 0); sys.root.add(road);
+    road.position.set(70, -0.75, 0); road.receiveShadow = true; sys.root.add(road);
     { const sh = new THREE.Shape(); sh.moveTo(0, 0); for (let i = 0; i <= 30; i++) { const u = i / 30; sh.lineTo(u * SU.L * 100, SU.h * 100 * Math.sin(Math.PI * u)); } sh.lineTo(SU.L * 100, 0);
       const g = new THREE.ExtrudeGeometry(sh, { depth: 40, bevelEnabled: false }); g.translate(0, 0, -20);
       Q.bump = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ color: 0x8a6f5c, roughness: 0.9 })); sys.root.add(Q.bump); }
